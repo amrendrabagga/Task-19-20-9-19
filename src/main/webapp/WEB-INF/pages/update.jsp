@@ -18,6 +18,7 @@ font-style: italic;
 <body>
 <h2 align="center">Update Employee</h2>
 <hr>
+<spring:htmlEscape defaultHtmlEscape="true" /> 
 <form:form action="UpdateEmp" method="post" modelAttribute="emp">
 <table align="center" cellspacing="0" cellpadding="9px">
 <tr>
@@ -33,7 +34,7 @@ font-style: italic;
 <td>Salary</td>
 <td><form:input path="salary"/></td>
 <td>
-<form:errors path="salary" cssClass="error"><p class="error">Invalid number</p></form:errors></td><!-- explicitly setting msg(Invalid number) for number format exception  -->
+<form:errors path="salary" cssClass="error"/></td><!-- explicitly setting msg(Invalid number) for number format exception  -->
 </tr>
 
 <tr>

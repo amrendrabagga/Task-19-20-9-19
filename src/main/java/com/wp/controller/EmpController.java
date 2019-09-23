@@ -3,17 +3,16 @@ package com.wp.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 //import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,14 +33,27 @@ public class EmpController {
 		return "index.jsp";
 	}
 	@RequestMapping("/dataentry")
-	public String showDataEntryForm() {
-		return "EmpEntry";
+	public ModelAndView showDataEntryForm() {
+		ModelAndView mv = new ModelAndView("EmpEntry");
+		Emp emp = new Emp();
+		mv.addObject("emp", emp);
+		return mv;
 	}
 	
 	@RequestMapping("SaveEmp")
-	public ModelAndView saveEmp(@ModelAttribute("empInfo") Emp empModel) {
+	public ModelAndView saveEmp(@Validated @ModelAttribute("emp") Emp empModel,BindingResult bindingResult) {
 		 
-		ModelAndView mv = new ModelAndView("success");
+		ModelAndView mv ;
+		if(bindingResult.hasErrors()) {
+			System.out.println(bindingResult.getFieldError());
+			mv = new ModelAndView("EmpEntry");
+			System.out.println(bindingResult.getFieldError("eno").getCode());
+			if(bindingResult.getFieldError("eno").getCode().equals("eno"))
+				bindingResult.rejectValue("eno", "emp.eno", "invalid number");//custom message for error in eno
+			return mv;
+		}
+			
+		mv= new ModelAndView("success");
 		Emp emp = new Emp();
 		emp.setEno(empModel.getEno());
 		emp.setEname(empModel.getEname());
@@ -99,6 +111,7 @@ public class EmpController {
 			departments.add("System Architecture");departments.add("DEV OPS");
 			mv.addObject("depts", departments);
 	        
+			bindingResult.rejectValue("salary", "emp.salary", "invalid number");
 			return mv;
 		}
 		mv = new ModelAndView("redirect:datafetch");

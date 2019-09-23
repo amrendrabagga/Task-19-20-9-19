@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
     <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
@@ -9,12 +10,16 @@
 </head>
 <body>
 <h2>Employee Details</h2><hr>
+<spring:htmlEscape defaultHtmlEscape="true" />
+
+<!--  <c:out value="${emp.ename}"/>-->
+<!-- <script>$(document).ready(function(){$('body').hide();});</script> -->
 <pre>
-				Eno			:${empInfo.eno}
-				Ename			:${empInfo.ename}
-				Salary			:${empInfo.salary}
-				Designation		:${empInfo.designation}
-				Dept			:${empInfo.dept}
+				Eno			:<c:out value="${emp.eno}"/>
+				Ename			:<c:out value="${emp.ename}"/>
+				Salary			:<c:out value="${emp.salary}"/>
+				Designation		:<c:out value="${emp.designation}"/>
+				Dept			:<c:out value="${emp.dept}"/>
 </pre>
 <hr>
 <a href="dataentry">ADD Employee</a><br>
