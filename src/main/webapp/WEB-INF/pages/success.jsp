@@ -10,11 +10,7 @@
 </head>
 <body>
 <h2>Employee Details</h2><hr>
-<spring:htmlEscape defaultHtmlEscape="true" />
-
-<!--  <c:out value="${emp.ename}"/>-->
-<!-- <script>$(document).ready(function(){$('body').hide();});</script> -->
-<pre>
+ <pre>
 				Eno			:<c:out value="${emp.eno}"/>
 				Ename			:<c:out value="${emp.ename}"/>
 				Salary			:<c:out value="${emp.salary}"/>

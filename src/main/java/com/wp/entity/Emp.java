@@ -20,17 +20,17 @@ public class Emp {
 	
 	@Id
 	@Min(value=101,message="cannot enter value less than 101")
-	@Max(value=301,message="cannot enter value more than 101")
+	@Max(value=301,message="cannot enter value more than 301")
 	private int eno;
 	
-	@Pattern(regexp = "^[a-zA-Z0-9_\\.]+(\\s[a-zA-Z0-9_]+)*$",message="characters and digits are only allowed")
+	@Pattern(regexp = "^[a-zA-Z0-9_\\.]+(\\s[a-zA-Z0-9_]+)*$",message="special characters are not allowed")
 	@NotNull(message="cannot enter empty ename")
 	private String ename;
 	
 	@CheckSalary //custom validation- salary must lie between(10k to 1cr)
 	private int salary;
 	
-	@Pattern(regexp = "^[a-zA-Z_]+[0-9]*( [a-zA-Z_]+)*$",message="only characters and digits are  only allowed")
+	@Pattern(regexp = "^[a-zA-Z_]+[0-9]*( [a-zA-Z_]+)*$",message="special characters are not allowed")
 	@Size(min=2,max=15,message="cannot enter designation less than 2 char and more than 15")
 	@NotNull(message="cannot enter empty designation")
 	private String designation;

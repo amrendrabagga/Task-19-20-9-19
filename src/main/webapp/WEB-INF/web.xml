@@ -8,6 +8,16 @@
     <param-name>defaultHtmlEscape</param-name>
     <param-value>true</param-value>
 	</context-param>
+  <filter>
+  	<filter-name>XSSFilter</filter-name>
+  	<display-name>XSSFilter</display-name>
+  	<description></description>
+  	<filter-class>com.wp.xss.XSSFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>XSSFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   
 </web-app>
 	

@@ -17,7 +17,7 @@ font-style: italic;
 </head>
 <body>
 <h2>ENTER EMP DETAILS</h2><hr>
-<!-- <spring:htmlEscape defaultHtmlEscape="true" /> -->
+<spring:htmlEscape defaultHtmlEscape="true" /> 
 <form:form action="SaveEmp" modelAttribute="emp">
 	<table align="center"  cellspacing="0" cellpadding="6px">
 		<tr>
@@ -26,13 +26,13 @@ font-style: italic;
 		
 		</tr>
 		<tr>
-		<td>Enter Name</td><td><form:input path="ename" htmlEscape="true"/></td><td><form:errors path="ename" cssClass="error"/></td>
+		<td>Enter Name</td><td><form:input path="ename" defaultHtmlEscape="true" /></td><td><form:errors path="ename" cssClass="error"/></td>
 		</tr>
 		<tr>
 		<td>Enter Salary</td><td><form:input path="salary"/></td><td><form:errors path="salary" cssClass="error"/></td>
 		</tr>
 		<tr>
-		<td>Enter Designation</td><td><form:input path="designation"/></td><td><form:errors path="designation" cssClass="error"/></td>
+		<td>Enter Designation</td><td><form:input path="designation" defaultHtmlEscape="true"/></td><td><form:errors path="designation" cssClass="error"/></td>
 		</tr>
 		<tr>
 		<td>Enter Department</td><td><form:input path="dept"/></td><td><form:errors path="dept" cssClass="error"/></td>

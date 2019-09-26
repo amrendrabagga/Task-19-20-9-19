@@ -28,7 +28,7 @@ font-style: italic;
 
  <tr>
 <td>Ename</td>
-<td><form:input path="ename"/></td><td><form:errors path="ename" cssClass="error"/></td>
+<td><form:input path="ename" defaultHtmlEscape="true"/></td><td><form:errors path="ename" cssClass="error"/></td>
 </tr>
 <tr>
 <td>Salary</td>
@@ -39,7 +39,7 @@ font-style: italic;
 
 <tr>
 <td>Designation</td>
-<td><form:input path="designation"/></td><td><form:errors path="designation" cssClass="error"/></td>
+<td><form:input path="designation" defaultHtmlEscape="true"/></td><td><form:errors path="designation" cssClass="error"/></td>
 </tr>
 
 <tr>
